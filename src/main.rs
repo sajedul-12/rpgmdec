@@ -240,6 +240,11 @@ enum State {
     DecryptArchive,
 }
 
+enum Language {
+    English,
+    Russian,
+}
+
 struct Application {
     decrypted_archive_entries: Vec<ArchiveEntry>,
     encrypted_archive_extension: String,
@@ -254,6 +259,7 @@ struct Application {
     image_scale_factor: f32,
     progress_slider_locked: bool,
     state: State,
+    language: Language,
 
     app: App,
     window: Window,
@@ -325,15 +331,19 @@ impl Application {
     fn retranslate(&mut self, language: Option<&str>) {
         if let Some(language) = language {
             if language == "ru" {
+                self.language = Language::Russian;
                 init_ru();
             } else {
+                self.language = Language::English;
                 init_en();
             }
         } else if let Some(locale) = get_locale()
             && locale.starts_with("ru")
         {
+            self.language = Language::Russian;
             init_ru();
         } else {
+            self.language = Language::English;
             init_en();
         }
 
@@ -448,6 +458,7 @@ impl Application {
             decrypted_archive_entries: Vec::new(),
             encrypted_archive_extension: String::new(),
             state: State::None,
+            language: Language::English,
             file_list_map,
             audio_player,
             decrypter,
@@ -644,23 +655,13 @@ impl Application {
         let mut i = 0;
 
         let mut_self = unsafe { &mut *std::ptr::from_mut::<Self>(self) };
-        self.menu_bar.add(
-            tr!(MENU_BAR_ITEMS[i]),
-            Shortcut::Ctrl | 'o',
-            MenuFlag::Normal,
-            move |_| {
-                let Some(file) = file_chooser(
-                    tr!("Select File"),
-                    tr!("Encrypted Assets/Archives (*.{rpgmvp,rpgmvo,rpgmvm,png_,ogg_,m4a_,rgssad,rgss2a,rgss3a})\t"),
-                    dirs::home_dir().unwrap().join(""),
-                    true,
-                ) else {
-                    return;
-                };
+        self.menu_bar.add(tr!(MENU_BAR_ITEMS[i]), Shortcut::Ctrl | 'o', MenuFlag::Normal, move |_| {
+            let Some(file) = file_chooser(tr!("Select File"), tr!("Encrypted Assets/Archives (*.{rpgmvp,rpgmvo,rpgmvm,png_,ogg_,m4a_,rgssad,rgss2a,rgss3a})\t"), dirs::home_dir().unwrap().join(""), true) else {
+                return;
+            };
 
-                mut_self.parse_files(&file);
-            },
-        );
+            mut_self.parse_files(&file);
+        });
         i += 1;
 
         let mut_self = unsafe { &mut *std::ptr::from_mut::<Self>(self) };
@@ -723,8 +724,12 @@ impl Application {
         );
         i += 1;
 
+        let mut_self = unsafe { &mut *std::ptr::from_mut::<Self>(self) };
         self.menu_bar.add(tr!(MENU_BAR_ITEMS[i]), Shortcut::None, MenuFlag::Normal, move |_| {
-            let _ = webbrowser::open("https://github.com/rpg-maker-translation-tools/rpgmdec/docs/help.md");
+            let _ = match mut_self.language {
+                Language::Russian => webbrowser::open("https://github.com/rpg-maker-translation-tools/rpgmdec/tree/master/docs/help-ru.md"),
+                Language::English => webbrowser::open("https://github.com/rpg-maker-translation-tools/rpgmdec/tree/master/docs/help.md"),
+            };
         });
         i += 1;
 
@@ -1421,17 +1426,13 @@ impl Application {
             }
 
             if found_component.is_none() {
-                return ControlFlow::Break(tr!(
-                    "Unable to determine the type of the passed assets from the passed path {}. If you want to encrypt an archive, your assets should be arranged in `Audio`, `Graphics`, `Data` or/and `Fonts` directories. If you want to encrypt assets, the path the the asset should contain `www` directory."
-                ).replacen("{}",  &file_path.display().to_string(), 1));
+                return ControlFlow::Break(tr!("Unable to determine the type of the passed assets from the passed path {}. If you want to encrypt an archive, your assets should be arranged in `Audio`, `Graphics`, `Data` or/and `Fonts` directories. If you want to encrypt assets, the path the the asset should contain `www` directory.").replacen("{}", &file_path.display().to_string(), 1));
             }
 
             if let Some(component) = required_component {
                 if component == "www" {
                     if component != found_component.unwrap() {
-                        return ControlFlow::Break(tr!(
-                            "Component mismatch when parsing files. Detected `www` directory for asset encryption, but it's missing in the path {}."
-                        ).replacen("{}",  &file_path.display().to_string(), 1));
+                        return ControlFlow::Break(tr!("Component mismatch when parsing files. Detected `www` directory for asset encryption, but it's missing in the path {}.").replacen("{}", &file_path.display().to_string(), 1));
                     }
                 } else {
                     let mut is_required_component = false;
@@ -1443,9 +1444,7 @@ impl Application {
                     }
 
                     if !is_required_component {
-                        return ControlFlow::Break(tr!(
-                            "Component mismatch when parsing files. Detected Audio/Graphics/Data/Fonts directories for archive encryption, but it's missing in the path {}."
-                        ).replacen("{}",  &file_path.display().to_string(), 1));
+                        return ControlFlow::Break(tr!("Component mismatch when parsing files. Detected Audio/Graphics/Data/Fonts directories for archive encryption, but it's missing in the path {}.").replacen("{}", &file_path.display().to_string(), 1));
                     }
                 }
             } else {
@@ -1752,9 +1751,7 @@ impl Application {
                 ));
             }
             _ => {
-                self.update_display(DisplayMode::Message(
-                    tr!("{}: Unsupported file extension. If it's something that can be displayed, open an issue in our GitHub repository.").replacen("{}", &extension, 1),
-                ));
+                self.update_display(DisplayMode::Message(tr!("{}: Unsupported file extension. If it's something that can be displayed, open an issue in our GitHub repository.").replacen("{}", &extension, 1)));
             }
         }
     }
